@@ -6,9 +6,6 @@
   <title>Wuthering Waves</title>
   <script src="https://cdn.tailwindcss.com"></script>
 
-
-
-<!--Style-->
   <style>
     /* Sidebar animation */
     .sidebar {
@@ -20,124 +17,140 @@
       width: 20rem;
     }
 
-
-    /* Ensure icon label stays hidden unless sidebar is expanded */
     .sidebar span {
       white-space: nowrap;
     }
 
-
-        .sidebar::before {
+    .sidebar::before {
       content: "";
       background-image: url('Wuwa6.jpg');
       background-size: cover;
       background-position: center;
       position: absolute;
       inset: 0;
-      opacity: 0.15; /* controls transparency */
+      opacity: 0.15;
       z-index: 0;
       border-radius: 0 0.5rem 0.5rem 0;
     }
 
+    /* Image hover container */
+    .container {
+      display: flex;
+      gap: 10px;
+      width: 90%;
+      max-width: 1100px;
+      height: 400px;
+      margin: 2rem auto;
+    }
+
+    .img {
+      position: relative;
+      flex: 1;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7) saturate(0.2) contrast(1) blur(2px);
+      border-radius: 20px;
+      transition: flex 0.3s, filter 0.3s;
+      overflow: hidden;
+      box-shadow: rgba(0, 0, 0, 0.493) 0px 25px 50px -12px;
+      border: 1px solid #8b9da9;
+    }
+
+    .img:hover {
+      flex: 1.5;
+      filter: none;
+    }
+
+.img span {
+  display: block;
+  width: 50%;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff; /* Tailwind's gray-200 */
+  letter-spacing: 1px;
+  font-weight: bold;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.10s;
+  text-shadow:
+    1px 1px 3px rgba(0, 0, 0, 0.7); /* soft shadow for readability */
+}
 
 
+    .img:hover span {
+      bottom: 20px;
+    }
+
+    .img1 { background-image: url("Shorekeeper.png"); }
+    .img2 { background-image: url("Cantarella.png"); }
+    .img3 { background-image: url("Jinhsi.png"); }
+    .img4 { background-image: url("Cartethyia.png"); }
+
+    .hidden-gallery {
+      display: none;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 1rem;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .hidden-gallery.active {
+      display: flex;
+    }
   </style>
 </head>
+
 <body class="bg-gray-900 text-white font-sans">
 
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 h-full bg-slate-800 sidebar overflow-hidden z-50 group">
+    <nav class="flex flex-col items-start space-y-6 p-4 text-base relative z-10">
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M3 12l9-9 9 9M4 10v10h16V10" />
+        </svg>
+        <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Home</span>
+      </a>
 
+      <a href="#events" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
+        </svg>
+        <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">Events</span>
+      </a>
 
-<!-- Sidebar -->
-<aside class="fixed top-0 left-0 h-full bg-slate-800 sidebar overflow-hidden z-50 group">
-  <nav class="flex flex-col items-start space-y-6 p-4 text-base relative z-10">
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <h2 class="text-sm font-semibold text-indigo-300 mb-2">Beginner's Privilege</h2>
+        <img src="Wuwa4.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
+      </section>
 
-    <!-- Navigation link (icons always visible) -->
-    <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path d="M3 12l9-9 9 9M4 10v10h16V10" />
-      </svg>
-      <!-- Label: hidden by default, visible on hover -->
-      <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
-        Home
-      </span>
-    </a>
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <article class="bg-gray-700 p-3 rounded-lg shadow">
+          <h2 class="text-sm font-semibold text-indigo-300 mb-2">Story Quests</h2>
+          <video src="Wuwa3.mp4" controls autoplay muted loop playsinline class="w-full h-auto rounded-lg object-cover"></video>
+        </article>
+      </section>
 
-<a href="#events" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
-  <!-- New icon for Events (calendar-style) -->
-  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" />
-  </svg>
-  <!-- Label: hidden by default, visible on hover -->
-  <span class="opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
-    Events
-  </span>
-</a>
+      <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+        <article class="bg-gray-700 p-3 rounded-lg shadow">
+          <h2 class="text-sm font-semibold text-indigo-300 mb-2">New Banner</h2>
+          <video src="Wuwa2.mp4" controls autoplay muted loop playsinline class="w-full h-auto rounded-lg object-cover"></video>
+        </article>
+      </section>
+    </nav>
+  </aside>
 
-
-    <!-- Repeat the same for other links -->
-    
-    <!-- Sidebar image -->
-    <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-       <h2 class="text-sm font-semibold text-indigo-300 mb-2">Beginner's Privilege</h2>
-      <img src="Wuwa4.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
-    </section>
-
-
-
-
-        <!-- Sidebar video -->
-    <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-      <article class="bg-gray-700 p-3 rounded-lg shadow">
-        <h2 class="text-sm font-semibold text-indigo-300 mb-2">Story Quests</h2>
-        <video
-          src="Wuwa3.mp4"
-          controls
-          autoplay
-          muted
-          loop
-          playsinline
-          class="w-full h-auto rounded-lg object-cover"
-        ></video>
-      </article>
-    </section>
-
-
-
-    <!-- Sidebar video -->
-    <section class="w-full px-2 transition duration-300 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
-      <article class="bg-gray-700 p-3 rounded-lg shadow">
-        <h2 class="text-sm font-semibold text-indigo-300 mb-2">New Banner</h2>
-        <video
-          src="Wuwa2.mp4"
-          controls
-          autoplay
-          muted
-          loop
-          playsinline
-          class="w-full h-auto rounded-lg object-cover"
-        ></video>
-      </article>
-    </section>
-    
-  </nav>
-</aside>
-
-
-
-
-  <!-- Main content -->
+  <!-- Main Content -->
   <div class="ml-20 md:ml-48 transition-all duration-300">
-
-
-
-    <!-- Header -->
     <header class="bg-gray-800 px-4 py-4 shadow md:px-6">
       <div class="flex justify-between items-center max-w-7xl mx-auto">
         <h1 class="text-xl sm:text-2xl font-bold text-indigo-300">Wuthering Waves</h1>
-
-
-
-        <!-- Desktop Nav -->
         <nav class="hidden md:flex space-x-6 text-sm sm:text-base">
           <a href="#" class="hover:text-indigo-400">Home</a>
           <a href="#" class="hover:text-indigo-400">Library</a>
@@ -149,20 +162,16 @@
       </div>
     </header>
 
-
-
     <!-- Image Section -->
     <section class="max-w-7xl mx-auto px-4 py-4">
       <img src="Wuwa.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
     </section>
 
-
-
     <!-- Articles -->
     <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-7xl mx-auto">
       <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
         <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">What is Wuthering Waves?</h2>
-        <p class="text-gray-300 text-sm">Wuthering Waves is a visually captivating open-world action RPG set in a world ravaged by a mysterious calamity known as the Lament. You awaken as the Rover — a silent, amnesiac protagonist drawn into a land teeming with the remnants of lost civilizations and dangerous anomalies. The game offers a beautifully decayed world to explore, rich with hidden lore, intense boss fights, and fluid, high-speed traversal. Players can engage in stylish combat while uncovering the forgotten truths of the world and their own identity</p>
+        <p class="text-gray-300 text-sm">Wuthering Waves is a visually captivating open-world action RPG set in a world ravaged by a mysterious calamity known as the Lament. You awaken as the Rover — a silent, amnesiac protagonist drawn into a land teeming with the remnants of lost civilizations and dangerous anomalies. The game offers a beautifully decayed world to explore, rich with hidden lore, intense boss fights, and fluid, high-speed traversal. Players can engage in stylish combat while uncovering the forgotten truths of the world and their own identity.</p>
       </article>
 
       <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
@@ -172,33 +181,81 @@
 
       <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
         <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">Combat & Exploration</h2>
-        <p class="text-gray-300 text-sm"> Wuthering Waves delivers a deeply satisfying gameplay loop combining high-mobility exploration with skill-based combat. Players can double-jump, wall-run, glide, and grapple across vertical environments, giving them complete freedom to traverse a shattered world. Combat is fast, combo-driven, and cinematic — emphasizing precision, timing, and strategy. Each Resonator has unique elemental abilities and stylish animations, encouraging team synergy and creative tactics in battle. The world itself reacts to your presence, creating an immersive experience that evolves as you play.</p>
+        <p class="text-gray-300 text-sm"> Combat is fast, combo-driven, and cinematic — emphasizing precision, timing, and strategy. Each Resonator has unique elemental abilities and stylish animations, encouraging team synergy and creative tactics in battle. The world itself reacts to your presence, creating an immersive experience that evolves as you play.</p>
       </article>
 
-      <!-- Game Music Video -->
-<article class="col-span-full bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
-  <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-4">Gameplay Preview</h2>
-  <video
-    src="Wuwa1.mp4"
-    controls
-    autoplay
-    muted
-    loop
-    playsinline
-    class="w-full h-auto rounded-lg shadow-lg object-cover"
-  >
-  </video>
-</article>
+      <!-- Gameplay Preview Video -->
+      <article class="col-span-full bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-4">Gameplay Preview</h2>
+        <video src="Wuwa1.mp4" controls autoplay muted loop playsinline class="w-full h-auto rounded-lg shadow-lg object-cover"></video>
+      </article>
+
+<!-- Character Showcase Section (This where Hover Image Effect) -->
+<section class="col-span-full" id="characterShowcase">
+  <div class="max-w-7xl mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold text-indigo-300 mb-4 text-center">Characters</h2>
+
+    <nav class="container mx-auto flex justify-between items-center">
+      <div class="container">
+        <div class="img img1"><span>Shorekeeper</span></div>
+        <div class="img img2"><span>Cantarella</span></div>
+        <div class="img img3"><span>Jinhsi</span></div>
+        <div class="img img4"><span>Cartethyia</span></div>
+      </div>
+    </nav>
+
+    <!-- View All Button -->
+    <div class="text-center mt-4">
+      <button id="viewAllBtn" class="bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full transition duration-300 shadow-md">
+        View more
+      </button>
+    </div>
+
+    <!-- Hidden Gallery -->
+    <div id="moreGallery" class="hidden-gallery container mt-6 bg-gray-800/50 backdrop-blur-md rounded-xl p-4">
+      <div class="img" style="background-image: url('Yangyang.png');"><span>Yangyang</span></div>
+      <div class="img" style="background-image: url('Yinlin.png');"><span>Yinlin</span></div>
+      <div class="img" style="background-image: url('Verina.png');"><span>Verina</span></div>
+      <div class="img" style="background-image: url('Encore.png');"><span>Encore</span></div>
+    </div>
+  </div>
+</section>
 
     </main>
 
-
-
-    <!-- Footer -->
     <footer class="bg-gray-950 text-gray-400 text-center text-sm py-4 mt-4">
       &copy; 2025 Wuthering Waves. All rights reserved.
     </footer>
-
   </div>
+
+  <!-- View All Script -->
+  <script>
+    const btn = document.getElementById('viewAllBtn');
+    const gallery = document.getElementById('moreGallery');
+    const showcase = document.getElementById('characterShowcase');
+
+    btn.addEventListener('click', () => {
+      const isActive = gallery.classList.contains('active');
+      gallery.classList.toggle('active');
+
+      if (!isActive) {
+        btn.textContent = "View less";
+        btn.classList.remove("bg-gray-700", "hover:bg-gray-600");
+        btn.classList.add("bg-indigo-600", "hover:bg-indigo-500");
+
+        setTimeout(() => {
+          gallery.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      } else {
+        btn.textContent = "View more";
+        btn.classList.remove("bg-indigo-600", "hover:bg-indigo-500");
+        btn.classList.add("bg-gray-700", "hover:bg-gray-600");
+
+        setTimeout(() => {
+          btn.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
