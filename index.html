@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wuthering Waves</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+
+
+
+  <style>
+    /* Sidebar animation */
+    .sidebar {
+      width: 4.5rem;
+      transition: width 0.3s ease;
+    }
+
+    .sidebar:hover {
+      width: 20rem;
+    }
+
+
+
+    /* Ensure icon label stays hidden unless sidebar is expanded */
+    .sidebar span {
+      white-space: nowrap;
+    }
+
+
+        .sidebar::before {
+      content: "";
+      background-image: url('Wuwa6.jpg');
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      inset: 0;
+      opacity: 0.15; /* controls transparency */
+      z-index: 0;
+      border-radius: 0 0.5rem 0.5rem 0;
+    }
+
+
+
+  </style>
+</head>
+<body class="bg-gray-900 text-white font-sans">
+
+
+
+  <!-- Sidebar -->
+  <aside class="fixed top-0 left-0 h-full bg-slate-800 sidebar overflow-hidden z-50">
+    <nav class="flex flex-col items-start space-y-6 p-4 text-base">
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 12l9-9 9 9M4 10v10h16V10" /></svg>
+        <span class="hidden sidebar:hover:inline">Home</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        <span class="hidden sidebar:hover:inline">Library</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" /></svg>
+        <span class="hidden sidebar:hover:inline">Saved</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2 8h20M2 16h20" /></svg>
+        <span class="hidden sidebar:hover:inline">About</span>
+      </a>
+      <a href="#" class="flex items-center space-x-3 hover:bg-slate-700 p-2 rounded w-full">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M2 3h20v18H2V3z" /></svg>
+        <span class="hidden sidebar:hover:inline">Login</span>
+      </a>
+
+
+          <section class="max-w-1000xl mx-auto px-1000 py-1000">
+      <img src="Wuwa2.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
+    </section>
+
+    </nav>
+  </aside>
+
+
+
+  <!-- Main content -->
+  <div class="ml-20 md:ml-48 transition-all duration-300">
+
+
+
+    <!-- Header -->
+    <header class="bg-gray-800 px-4 py-4 shadow md:px-6">
+      <div class="flex justify-between items-center max-w-7xl mx-auto">
+        <h1 class="text-xl sm:text-2xl font-bold text-indigo-300">Wuthering Waves</h1>
+
+
+
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-6 text-sm sm:text-base">
+          <a href="#" class="hover:text-indigo-400">Home</a>
+          <a href="#" class="hover:text-indigo-400">Library</a>
+          <a href="#" class="hover:text-indigo-400">Events</a>
+          <a href="#" class="hover:text-indigo-400">About</a>
+          <a href="#" class="hover:text-indigo-400">Login</a>
+          <a href="#" class="hover:text-indigo-400">Sign up</a>
+        </nav>
+      </div>
+    </header>
+
+
+
+    <!-- Image Section -->
+    <section class="max-w-7xl mx-auto px-4 py-4">
+      <img src="Wuwa.jpg" alt="Wuthering Waves" class="w-full h-auto rounded-lg shadow-lg object-cover">
+    </section>
+
+
+
+    <!-- Articles -->
+    <main class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-4 pb-8 max-w-7xl mx-auto">
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">What is Wuthering Waves?</h2>
+        <p class="text-gray-300 text-sm">Wuthering Waves is a visually captivating open-world action RPG set in a world ravaged by a mysterious calamity known as the Lament. You awaken as the Rover — a silent, amnesiac protagonist drawn into a land teeming with the remnants of lost civilizations and dangerous anomalies. The game offers a beautifully decayed world to explore, rich with hidden lore, intense boss fights, and fluid, high-speed traversal. Players can engage in stylish combat while uncovering the forgotten truths of the world and their own identity</p>
+      </article>
+
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">Featured Character: Rover</h2>
+        <p class="text-gray-300 text-sm"> Rover is the central character in Wuthering Waves — a wanderer from beyond who holds the key to the world's salvation or its ruin. Unlike traditional heroes, Rover’s identity and power grow alongside the narrative, shaped by the choices players make and the memories they recover. With the ability to absorb and wield Resonator powers, Rover’s combat style is adaptive, offering dynamic synergy with the party. Their journey is personal, poetic, and intimately tied to the fate of the post-Lament world.</p>
+      </article>
+
+      <article class="bg-gray-800 p-5 rounded-lg shadow hover:shadow-lg">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-300 mb-2">Combat & Exploration</h2>
+        <p class="text-gray-300 text-sm"> Wuthering Waves delivers a deeply satisfying gameplay loop combining high-mobility exploration with skill-based combat. Players can double-jump, wall-run, glide, and grapple across vertical environments, giving them complete freedom to traverse a shattered world. Combat is fast, combo-driven, and cinematic — emphasizing precision, timing, and strategy. Each Resonator has unique elemental abilities and stylish animations, encouraging team synergy and creative tactics in battle. The world itself reacts to your presence, creating an immersive experience that evolves as you play.</p>
+      </article>
+    </main>
+
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-400 text-center text-sm py-4 mt-4">
+      &copy; 2025 Wuthering Waves. All rights reserved.
+    </footer>
+
+  </div>
+</body>
+</html>
